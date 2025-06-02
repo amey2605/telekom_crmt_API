@@ -39,6 +39,11 @@ public class Customer_Service {
         return temp;
     }
 
+    @Transactional
+    public void deleteById(int id){    //delete by email
+        custRepo.deleteById(id);
+    }
+
 
     public void updateCustomer(int id,Customer updatedC){   //update customer
         custRepo.findById(id).map(
@@ -51,6 +56,7 @@ public class Customer_Service {
                 })
                 .orElseThrow(() -> new RuntimeException("Customer not found with ID: " + id));
     }
+
 
 
 }
